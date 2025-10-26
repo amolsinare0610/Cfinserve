@@ -1,0 +1,1066 @@
+/* ...existing code... */
+
+/* Refined, more "promising" visual styles for Cfinserve UI */
+:root{
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --accent: #0f62b8;
+  --accent-2: #1f7dbf;
+  --accent-3: #0668a3;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --radius: 12px;
+  --container: 1100px;
+  --gap: 18px;
+  --shadow-lg: 0 18px 50px rgba(12,30,60,0.10);
+  --shadow-md: 0 8px 24px rgba(12,30,60,0.06);
+  --glass: rgba(255,255,255,0.65);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg,#f8fbff 0%, var(--bg) 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.55;
+  font-size:16px;
+}
+
+/* Layout container */
+.container{
+  max-width:var(--container);
+  margin:32px auto;
+  padding:22px;
+}
+
+/* Header */
+.site-header{
+  background:linear-gradient(180deg, rgba(255,255,255,0.9), var(--glass));
+  border-radius:var(--radius);
+  padding:14px 20px;
+  box-shadow:var(--shadow-md);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  backdrop-filter: blur(6px);
+  border:1px solid rgba(12,30,60,0.04);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--accent-3);
+  font-weight:800;
+  font-size:1.05rem;
+}
+.brand .logo{
+  width:48px;
+  height:48px;
+  display:inline-grid;
+  place-items:center;
+  color:#fff;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  border-radius:10px;
+  box-shadow:0 8px 20px rgba(15,98,184,0.12);
+  font-weight:800;
+  font-size:1.05rem;
+}
+
+/* Nav */
+.nav{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:8px 14px;
+  border-radius:10px;
+  transition:all .15s cubic-bezier(.2,.9,.2,1);
+  font-weight:600;
+  font-size:0.95rem;
+}
+.nav a:hover{
+  background:rgba(15,98,184,0.06);
+  color:var(--accent-3);
+  transform:translateY(-1px);
+}
+.nav a.active{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#fff;
+  box-shadow:0 8px 30px rgba(15,98,184,0.12);
+}
+
+/* Main card */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow-lg);
+  margin-top:20px;
+  border:1px solid rgba(12,30,60,0.04);
+}
+
+/* Hero / Home */
+.hero{
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+.hero .hero-left{
+  flex:1 1 480px;
+}
+.hero h1{
+  margin:0 0 10px 0;
+  font-size:2.1rem;
+  line-height:1.02;
+  color:var(--text);
+}
+.lead{
+  margin:0 0 18px 0;
+  color:var(--muted);
+  font-size:1.05rem;
+}
+
+/* CTA */
+.cta-row{ display:flex; gap:12px; margin-top:18px; flex-wrap:wrap }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 16px;
+  border-radius:10px;
+  cursor:pointer;
+  text-decoration:none;
+  font-weight:700;
+  color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  box-shadow:0 10px 30px rgba(15,98,184,0.12);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn.secondary{
+  background:transparent;
+  color:var(--accent-3);
+  border:1px solid rgba(15,98,184,0.12);
+  box-shadow:none;
+}
+.btn:hover{ transform:translateY(-3px) }
+
+/* Features list (used for services/about/blogs) */
+.features{
+  display:block;
+  margin:8px 0 0 0;
+  padding:12px;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border-radius:10px;
+  border:1px solid rgba(12,30,60,0.04);
+}
+.features ul{ margin:0; padding-left:20px; }
+.features li{
+  margin:8px 0;
+  position:relative;
+  padding-left:28px;
+  color:var(--text);
+}
+.features li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:6px;
+  width:18px;
+  height:18px;
+  border-radius:6px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  display:inline-grid;
+  place-items:center;
+  color:#fff;
+  font-weight:800;
+  font-size:0.85rem;
+}
+.features li strong{ color:var(--accent-3) }
+
+/* Services grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:14px;
+}
+.service{
+  padding:18px;
+  border-radius:12px;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border:1px solid rgba(12,30,60,0.04);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.service:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(12,30,60,0.06) }
+
+/* Blogs list */
+.blogs{
+  display:grid;
+  gap:12px;
+}
+.blog-card{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px;
+  border-radius:10px;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border:1px solid rgba(12,30,60,0.04);
+  transition:box-shadow .12s ease, transform .12s ease;
+}
+.blog-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(12,30,60,0.06) }
+.blog-card h3{ margin:0; font-size:1.05rem; color:var(--accent-3) }
+.blog-card p{ margin:6px 0 0 0; color:var(--muted) }
+
+/* FAQs (description list) */
+dl{ margin:0 }
+dt{
+  font-weight:700;
+  margin-top:12px;
+  margin-bottom:6px;
+  color:var(--accent-3);
+}
+dd{
+  margin:0 0 12px 0;
+  color:var(--text);
+  padding-left:6px;
+}
+
+/* Utilities & small */
+.muted{ color:var(--muted) }
+.small{ font-size:0.95rem; color:var(--muted) }
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:white;
+  font-weight:700;
+  font-size:0.85rem;
+}
+
+/* Footer */
+.site-footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:0.95rem;
+  margin:28px 0 42px 0;
+}
+
+/* Responsiveness */
+@media (max-width:900px){
+  .hero{ gap:16px }
+  .brand .logo{ width:40px; height:40px }
+  .container{ padding:16px; margin:22px auto }
+  .card{ padding:20px }
+}
+
+@media (max-width:640px){
+  .site-header{flex-direction:column; align-items:flex-start; gap:12px}
+  .nav{width:100%; justify-content:space-between}
+  .hero{flex-direction:column}
+  .hero h1{font-size:1.5rem}
+  .features{padding:12px}
+  .cta-row{flex-direction:column; align-items:flex-start}
+}
+
+/* Accessibility focus */
+a:focus, button:focus{ outline:3px solid rgba(15,98,184,0.12); outline-offset:3px }
+
+/* Small helpers for alignment in templates */
+.row{ display:flex; gap:12px; align-items:center }
+.col{ flex:1 }
+
+/* Refined, more "promising" visual styles for Cfinserve UI */
+:root{
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --accent: #0f62b8;
+  --accent-2: #1f7dbf;
+  --accent-3: #0668a3;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --radius: 12px;
+  --container: 1100px;
+  --gap: 18px;
+  --shadow-lg: 0 18px 50px rgba(12,30,60,0.10);
+  --shadow-md: 0 8px 24px rgba(12,30,60,0.06);
+  --glass: rgba(255,255,255,0.65);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg,#f8fbff 0%, var(--bg) 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.55;
+  font-size:16px;
+}
+
+/* Layout container */
+.container{
+  max-width:var(--container);
+  margin:32px auto;
+  padding:22px;
+}
+
+/* Header */
+.site-header{
+  background:linear-gradient(180deg, rgba(255,255,255,0.9), var(--glass));
+  border-radius:var(--radius);
+  padding:14px 20px;
+  box-shadow:var(--shadow-md);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  backdrop-filter: blur(6px);
+  border:1px solid rgba(12,30,60,0.04);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--accent-3);
+  font-weight:800;
+  font-size:1.05rem;
+}
+.brand .logo{
+  width:48px;
+  height:48px;
+  display:inline-grid;
+  place-items:center;
+  color:#fff;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  border-radius:10px;
+  box-shadow:0 8px 20px rgba(15,98,184,0.12);
+  font-weight:800;
+  font-size:1.05rem;
+}
+
+/* Nav */
+.nav{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:8px 14px;
+  border-radius:10px;
+  transition:all .15s cubic-bezier(.2,.9,.2,1);
+  font-weight:600;
+  font-size:0.95rem;
+}
+.nav a:hover{
+  background:rgba(15,98,184,0.06);
+  color:var(--accent-3);
+  transform:translateY(-1px);
+}
+.nav a.active{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#fff;
+  box-shadow:0 8px 30px rgba(15,98,184,0.12);
+}
+
+/* Main card */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow-lg);
+  margin-top:20px;
+  border:1px solid rgba(12,30,60,0.04);
+}
+
+/* Hero / Home */
+.hero{
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+.hero .hero-left{
+  flex:1 1 480px;
+}
+.hero h1{
+  margin:0 0 10px 0;
+  font-size:2.1rem;
+  line-height:1.02;
+  color:var(--text);
+}
+.lead{
+  margin:0 0 18px 0;
+  color:var(--muted);
+  font-size:1.05rem;
+}
+
+/* CTA */
+.cta-row{ display:flex; gap:12px; margin-top:18px; flex-wrap:wrap }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 16px;
+  border-radius:10px;
+  cursor:pointer;
+  text-decoration:none;
+  font-weight:700;
+  color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  box-shadow:0 10px 30px rgba(15,98,184,0.12);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn.secondary{
+  background:transparent;
+  color:var(--accent-3);
+  border:1px solid rgba(15,98,184,0.12);
+  box-shadow:none;
+}
+.btn:hover{ transform:translateY(-3px) }
+
+/* Features list (used for services/about/blogs) */
+.features{
+  display:block;
+  margin:8px 0 0 0;
+  padding:12px;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border-radius:10px;
+  border:1px solid rgba(12,30,60,0.04);
+}
+.features ul{ margin:0; padding-left:20px; }
+.features li{
+  margin:8px 0;
+  position:relative;
+  padding-left:28px;
+  color:var(--text);
+}
+.features li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:6px;
+  width:18px;
+  height:18px;
+  border-radius:6px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  display:inline-grid;
+  place-items:center;
+  color:#fff;
+  font-weight:800;
+  font-size:0.85rem;
+}
+.features li strong{ color:var(--accent-3) }
+
+/* Services grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:14px;
+}
+.service{
+  padding:18px;
+  border-radius:12px;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border:1px solid rgba(12,30,60,0.04);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.service:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(12,30,60,0.06) }
+
+/* Blogs list */
+.blogs{
+  display:grid;
+  gap:12px;
+}
+.blog-card{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:14px;
+  border-radius:10px;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border:1px solid rgba(12,30,60,0.04);
+  transition:box-shadow .12s ease, transform .12s ease;
+}
+.blog-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(12,30,60,0.06) }
+.blog-card h3{ margin:0; font-size:1.05rem; color:var(--accent-3) }
+.blog-card p{ margin:6px 0 0 0; color:var(--muted) }
+
+/* FAQs (description list) */
+dl{ margin:0 }
+dt{
+  font-weight:700;
+  margin-top:12px;
+  margin-bottom:6px;
+  color:var(--accent-3);
+}
+dd{
+  margin:0 0 12px 0;
+  color:var(--text);
+  padding-left:6px;
+}
+
+/* Utilities & small */
+.muted{ color:var(--muted) }
+.small{ font-size:0.95rem; color:var(--muted) }
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:white;
+  font-weight:700;
+  font-size:0.85rem;
+}
+
+/* Footer */
+.site-footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:0.95rem;
+  margin:28px 0 42px 0;
+}
+
+/* Responsiveness */
+@media (max-width:900px){
+  .hero{ gap:16px }
+  .brand .logo{ width:40px; height:40px }
+  .container{ padding:16px; margin:22px auto }
+  .card{ padding:20px }
+}
+
+@media (max-width:640px){
+  .site-header{flex-direction:column; align-items:flex-start; gap:12px}
+  .nav{width:100%; justify-content:space-between}
+  .hero{flex-direction:column}
+  .hero h1{font-size:1.5rem}
+  .features{padding:12px}
+  .cta-row{flex-direction:column; align-items:flex-start}
+}
+
+/* Accessibility focus */
+a:focus, button:focus{ outline:3px solid rgba(15,98,184,0.12); outline-offset:3px }
+
+/* Small helpers for alignment in templates */
+.row{ display:flex; gap:12px; align-items:center }
+.col{ flex:1 }
+
+/* ...existing code... */
+
+/* Enhanced visuals, micro-interactions and subtle animations */
+
+/* Palette tweaks & gradients */
+:root{
+  --accent-1: #0f62b8;   /* primary */
+  --accent-2: #1f7dbf;   /* secondary */
+  --accent-3: #0668a3;   /* deep */
+  --accent-grad: linear-gradient(120deg,var(--accent-1),var(--accent-2));
+  --surface-1: rgba(255,255,255,0.98);
+  --glass-2: rgba(255,255,255,0.6);
+  --muted-2: #8a92a6;
+  --success: #16a34a;
+}
+
+/* subtle animated page background (very light) */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(600px 400px at 10% 10%, rgba(15,98,184,0.06), transparent 10%),
+    radial-gradient(500px 300px at 90% 80%, rgba(31,125,191,0.04), transparent 10%);
+  animation: bg-drift 20s linear infinite;
+  pointer-events:none;
+}
+@keyframes bg-drift{
+  0%{ transform: translateY(0) rotate(0deg) }
+  50%{ transform: translateY(-6px) rotate(0.5deg) }
+  100%{ transform: translateY(0) rotate(0deg) }
+}
+
+/* header animated gradient border and subtle glow */
+.site-header{
+  border:1px solid rgba(12,30,60,0.04);
+  position:relative;
+  overflow:visible;
+}
+.site-header::after{
+  content:"";
+  position:absolute;
+  left: -50%;
+  right: -50%;
+  top: -2px;
+  height:4px;
+  background: linear-gradient(90deg, rgba(15,98,184,0.0), rgba(31,125,191,0.55), rgba(15,98,184,0.0));
+  filter: blur(8px);
+  transform: translateX(0);
+  animation: header-glow 6s linear infinite;
+  opacity:0.85;
+  border-radius:6px;
+  pointer-events:none;
+}
+@keyframes header-glow{
+  0%{ transform: translateX(-20%) }
+  50%{ transform: translateX(20%) }
+  100%{ transform: translateX(-20%) }
+}
+
+/* logo floating */
+.brand .logo{
+  will-change:transform;
+  transition:transform .5s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease;
+  animation: logo-float 6s ease-in-out infinite;
+}
+.brand .logo:hover{
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(15,98,184,0.14);
+}
+@keyframes logo-float{
+  0%{ transform: translateY(0) }
+  50%{ transform: translateY(-6px) }
+  100%{ transform: translateY(0) }
+}
+
+/* nav underline micro-interaction */
+.nav a{
+  position:relative;
+  overflow:visible;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:4px;
+  width:0%;
+  height:3px;
+  background:var(--accent-1);
+  border-radius:3px;
+  transform:translateX(-50%);
+  transition: width .28s cubic-bezier(.2,.9,.2,1), background .18s ease;
+}
+.nav a:hover::after{ width:58% }
+.nav a.active::after{ width:100%; background:var(--accent-2) }
+
+/* interactive buttons: subtle lift + icon bounce */
+.btn{
+  transition: transform .14s cubic-bezier(.2,.9,.2,1), box-shadow .14s ease;
+  will-change: transform;
+}
+.btn:active{ transform: translateY(1px) scale(.997) }
+
+/* card hover lift with soft highlight */
+.card, .service, .blog-card{
+  transition: transform .18s cubic-bezier(.16,.9,.3,1), box-shadow .18s ease, border-color .12s ease;
+}
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(12,30,60,0.09);
+  border-color: rgba(15,98,184,0.06);
+}
+
+/* service tiles: scale & reveal */
+.service{
+  transform-origin:center;
+  will-change:transform,box-shadow;
+}
+.service:hover{
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 26px 50px rgba(12,30,60,0.08);
+}
+
+/* blog list reveal with staggered animation */
+.blogs .blog-card{
+  opacity:0;
+  transform: translateY(8px) scale(.995);
+  animation: card-pop .45s forwards cubic-bezier(.2,.9,.2,1);
+}
+.blogs .blog-card:nth-child(1){ animation-delay: 0.06s }
+.blogs .blog-card:nth-child(2){ animation-delay: 0.12s }
+.blogs .blog-card:nth-child(3){ animation-delay: 0.18s }
+.blogs .blog-card:nth-child(4){ animation-delay: 0.24s }
+.blogs .blog-card:nth-child(5){ animation-delay: 0.30s }
+@keyframes card-pop{
+  to{ opacity:1; transform: translateY(0) scale(1) }
+}
+
+/* features check mark replacement: nicer badge */
+.features li::before{
+  content: "✓";
+  left: -2px;
+  top: 2px;
+  width:20px;
+  height:20px;
+  border-radius:6px;
+  background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  display:inline-grid;
+  place-items:center;
+  color:white;
+  font-size:0.78rem;
+  box-shadow: 0 6px 18px rgba(15,98,184,0.10);
+}
+
+/* FAQs: expand/collapse visual affordance */
+dt{
+  cursor:default;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+dd{ transition: color .12s ease }
+
+/* subtle focus styles */
+a:focus, button:focus, .nav a:focus{
+  box-shadow: 0 8px 28px rgba(15,98,184,0.12);
+  transform: translateY(-3px);
+}
+
+/* success badge for key items */
+.badge.success{
+  background: linear-gradient(90deg,#21b462,#16a34a);
+  box-shadow: 0 8px 26px rgba(16,163,86,0.12);
+}
+
+/* reduced motion: respect user preference */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important }
+  .site-header::after, body::before, .brand .logo, .blogs .blog-card{ animation: none !important }
+}
+
+:root{
+  --accent-1: #0f62b8;   /* primary */
+  --accent-2: #1f7dbf;   /* secondary */
+  --accent-3: #0668a3;   /* deep */
+  --accent-grad: linear-gradient(120deg,var(--accent-1),var(--accent-2));
+  --surface-1: rgba(255,255,255,0.98);
+  --glass-2: rgba(255,255,255,0.6);
+  --muted-2: #8a92a6;
+  --success: #16a34a;
+}
+
+/* subtle animated page background (very light) */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(600px 400px at 10% 10%, rgba(15,98,184,0.06), transparent 10%),
+    radial-gradient(500px 300px at 90% 80%, rgba(31,125,191,0.04), transparent 10%);
+  animation: bg-drift 20s linear infinite;
+  pointer-events:none;
+}
+@keyframes bg-drift{
+  0%{ transform: translateY(0) rotate(0deg) }
+  50%{ transform: translateY(-6px) rotate(0.5deg) }
+  100%{ transform: translateY(0) rotate(0deg) }
+}
+
+/* header animated gradient border and subtle glow */
+.site-header{
+  border:1px solid rgba(12,30,60,0.04);
+  position:relative;
+  overflow:visible;
+}
+.site-header::after{
+  content:"";
+  position:absolute;
+  left: -50%;
+  right: -50%;
+  top: -2px;
+  height:4px;
+  background: linear-gradient(90deg, rgba(15,98,184,0.0), rgba(31,125,191,0.55), rgba(15,98,184,0.0));
+  filter: blur(8px);
+  transform: translateX(0);
+  animation: header-glow 6s linear infinite;
+  opacity:0.85;
+  border-radius:6px;
+  pointer-events:none;
+}
+@keyframes header-glow{
+  0%{ transform: translateX(-20%) }
+  50%{ transform: translateX(20%) }
+  100%{ transform: translateX(-20%) }
+}
+
+/* logo floating */
+.brand .logo{
+  will-change:transform;
+  transition:transform .5s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease;
+  animation: logo-float 6s ease-in-out infinite;
+}
+.brand .logo:hover{
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(15,98,184,0.14);
+}
+@keyframes logo-float{
+  0%{ transform: translateY(0) }
+  50%{ transform: translateY(-6px) }
+  100%{ transform: translateY(0) }
+}
+
+/* nav underline micro-interaction */
+.nav a{
+  position:relative;
+  overflow:visible;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:4px;
+  width:0%;
+  height:3px;
+  background:var(--accent-1);
+  border-radius:3px;
+  transform:translateX(-50%);
+  transition: width .28s cubic-bezier(.2,.9,.2,1), background .18s ease;
+}
+.nav a:hover::after{ width:58% }
+.nav a.active::after{ width:100%; background:var(--accent-2) }
+
+/* interactive buttons: subtle lift + icon bounce */
+.btn{
+  transition: transform .14s cubic-bezier(.2,.9,.2,1), box-shadow .14s ease;
+  will-change: transform;
+}
+.btn:active{ transform: translateY(1px) scale(.997) }
+
+/* card hover lift with soft highlight */
+.card, .service, .blog-card{
+  transition: transform .18s cubic-bezier(.16,.9,.3,1), box-shadow .18s ease, border-color .12s ease;
+}
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(12,30,60,0.09);
+  border-color: rgba(15,98,184,0.06);
+}
+
+/* service tiles: scale & reveal */
+.service{
+  transform-origin:center;
+  will-change:transform,box-shadow;
+}
+.service:hover{
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 26px 50px rgba(12,30,60,0.08);
+}
+
+/* blog list reveal with staggered animation */
+.blogs .blog-card{
+  opacity:0;
+  transform: translateY(8px) scale(.995);
+  animation: card-pop .45s forwards cubic-bezier(.2,.9,.2,1);
+}
+.blogs .blog-card:nth-child(1){ animation-delay: 0.06s }
+.blogs .blog-card:nth-child(2){ animation-delay: 0.12s }
+.blogs .blog-card:nth-child(3){ animation-delay: 0.18s }
+.blogs .blog-card:nth-child(4){ animation-delay: 0.24s }
+.blogs .blog-card:nth-child(5){ animation-delay: 0.30s }
+@keyframes card-pop{
+  to{ opacity:1; transform: translateY(0) scale(1) }
+}
+
+/* features check mark replacement: nicer badge */
+.features li::before{
+  content: "✓";
+  left: -2px;
+  top: 2px;
+  width:20px;
+  height:20px;
+  border-radius:6px;
+  background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  display:inline-grid;
+  place-items:center;
+  color:white;
+  font-size:0.78rem;
+  box-shadow: 0 6px 18px rgba(15,98,184,0.10);
+}
+
+/* FAQs: expand/collapse visual affordance */
+dt{
+  cursor:default;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+dd{ transition: color .12s ease }
+
+/* subtle focus styles */
+a:focus, button:focus, .nav a:focus{
+  box-shadow: 0 8px 28px rgba(15,98,184,0.12);
+  transform: translateY(-3px);
+}
+
+/* success badge for key items */
+.badge.success{
+  background: linear-gradient(90deg,#21b462,#16a34a);
+  box-shadow: 0 8px 26px rgba(16,163,86,0.12);
+}
+
+/* reduced motion: respect user preference */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important }
+  .site-header::after, body::before, .brand .logo, .blogs .blog-card{ animation: none !important }
+}
+
+*,
+*::before,
+*::after {
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+/* Animated gradient CTA accent (subtle moving gradient) */
+.btn {
+  background-image: linear-gradient(90deg, rgba(15,98,184,0.98) 0%, rgba(31,125,191,0.95) 50%, rgba(15,98,184,0.98) 100%);
+  background-size: 200% 100%;
+  animation: accent-slide 6s linear infinite;
+}
+@keyframes accent-slide {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+/* Button ripple effect on click (no JS required) */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: rgba(255,255,255,0.22);
+  border-radius: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+.btn:active::after {
+  animation: ripple .6s cubic-bezier(.2,.9,.3,1);
+}
+@keyframes ripple {
+  to { transform: translate(-50%,-50%) scale(40); opacity: 0; }
+}
+
+/* Card micro-animations: floating shadow + 3D tilt on hover */
+.card {
+  will-change: transform, box-shadow;
+  transform-origin: center;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.01);
+}
+.service, .blog-card {
+  transform-origin: center;
+  perspective: 900px;
+}
+.service:hover, .blog-card:hover {
+  transform: translateY(-12px) rotateX(1.2deg) rotateY(-1.2deg) scale(1.02);
+}
+
+/* Staggered reveal for sections when they enter viewport (works with simple CSS when content present) */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px) scale(.998);
+  animation: reveal-up .6s forwards cubic-bezier(.2,.9,.2,1);
+}
+.reveal.delay-1 { animation-delay: .06s }
+.reveal.delay-2 { animation-delay: .12s }
+.reveal.delay-3 { animation-delay: .18s }
+@keyframes reveal-up {
+  to { opacity: 1; transform: translateY(0) scale(1) }
+}
+
+/* Shimmer utility for loading placeholders */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.02) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+@keyframes shimmer { from { background-position: -100% 0 } to { background-position: 100% 0 } }
+
+/* Nice badges for feature headings */
+.feature-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.9rem;
+  color:#fff;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 8px 20px rgba(15,98,184,0.12);
+}
+
+/* Improved FAQs spacing and subtle hover highlight */
+dt {
+  padding: 10px 8px;
+  border-radius: 8px;
+  transition: background-color .12s ease, transform .12s ease;
+}
+dt:hover { background: rgba(15,98,184,0.04); transform: translateX(4px) }
+
+/* Dark theme fallback via prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #071029;
+    --card: #07182a;
+    --accent-1: #42a5f5;
+    --accent-2: #1e88e5;
+    --accent-3: #90caf9;
+    --muted: #9aa7bf;
+    --text: #e6f2ff;
+    --glass: rgba(10,16,24,0.45);
+    --shadow-lg: 0 18px 50px rgba(0,0,0,0.6);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.45);
+  }
+  body::before { opacity: .35 }
+  .site-header, .card { border-color: rgba(255,255,255,0.03) }
+  .nav a { color: var(--muted) }
+}
+
+/* Utility classes to apply new dynamic styles in templates */
+.btn-large { padding: 14px 20px; font-size:1.02rem }
+.grid .service.reveal { will-change: transform, opacity }
+
+/* Small responsive tweak for animations on small screens */
+@media (max-width:640px){
+  .card:hover, .service:hover, .blog-card:hover { transform: none; box-shadow: var(--shadow-md) }
+  .btn { font-size: .97rem }
+}
+.tab-section {
+  display: none;
+}
+
+.tab-section.active {
+  display: block;
+}
