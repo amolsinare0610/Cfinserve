@@ -1064,3 +1064,499 @@ dt:hover { background: rgba(15,98,184,0.04); transform: translateX(4px) }
 .tab-section.active {
   display: block;
 }
+
+:root {
+  --primary: #2c5282;        /* Deep blue */
+  --primary-light: #4299e1;  /* Light blue */
+  --secondary: #38a169;      /* Green */
+  --text: #2d3748;          /* Dark gray for text */
+  --text-light: #718096;    /* Light gray for secondary text */
+  --background: #f7fafc;    /* Light background */
+  --white: #ffffff;
+  --accent: #ed8936;        /* Orange accent */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.site-header {
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.brand {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.brand .logo {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.nav-link:hover {
+  color: var(--primary-light);
+}
+
+.nav-link.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+h1, h2 {
+  color: var(--primary);
+}
+
+.lead {
+  color: var(--text-light);
+  font-size: 1.25rem;
+}
+
+.features li {
+  color: var(--text);
+  border-left: 3px solid var(--secondary);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+.site-footer {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Button styles if needed */
+.button {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--primary-light);
+}
+
+/* FAQ styles */
+dt {
+  color: var(--primary);
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+dd {
+  color: var(--text);
+  margin-left: 1rem;
+}
+
+/* Blog section */
+.blogs li {
+  border-left-color: var(--accent);
+}
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #f6f9fc 0%, #edf2f7 100%);
+  color: #2d3748;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.55;
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+/* Add a subtle pattern overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(62, 184, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(76, 81, 191, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Typography Enhancements */
+:root {
+  /* ...existing variables... */
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', var(--font-primary);
+  --line-height-tight: 1.2;
+  --line-height-relaxed: 1.7;
+}
+
+/* Base Typography */
+body {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: var(--line-height-relaxed);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  color: var(--accent-3);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 1.875rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Body Text */
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.0625rem;
+  color: var(--text);
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--accent-3);
+  margin-bottom: 2rem;
+}
+
+/* Lists */
+.features li {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin: 0.75rem 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+}
+
+/* Navigation */
+.nav a {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Brand */
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* FAQs */
+dt {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent-3);
+  margin-bottom: 0.5rem;
+}
+
+dd {
+  font-size: 1rem;
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+/* Blog Cards */
+.blog-card h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Footer */
+.site-footer {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Add font face for Plus Jakarta Sans */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  .lead { font-size: 1.125rem; }
+  p { font-size: 1rem; }
+}
+/* Remove default list styling */
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features li {
+  list-style-type: none;
+  padding-left: 30px;
+  position: relative;
+  margin: 12px 0;
+}
+
+/* Replace with custom checkmark */
+.features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+}
+/* Features list styling */
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features li {
+  list-style-type: none;
+  padding-left: 30px;
+  position: relative;
+  margin: 12px 0;
+  border-left: none; /* Remove the vertical line */
+}
+
+/* Checkmark styling */
+.features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(15,98,184,0.12);
+}
+/* Add these new styles at the end of your CSS file */
+
+/* Smooth page transitions */
+.tab-section {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gradient text effect for headings */
+h1 {
+  background: linear-gradient(120deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 8s ease infinite;
+  background-size: 200% auto;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Card hover effects */
+.card, .service, .blog-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover, .service:hover, .blog-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(15,98,184,0.15);
+}
+
+/* Navigation link hover effect */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+/* Floating animation for logo */
+.brand .logo {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Glowing effect for buttons */
+.btn, .button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+}
+
+.btn:hover, .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(15,98,184,0.2);
+}
+
+.btn::after, .button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.1);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+}
+
+.btn:hover::after, .button:hover::after {
+  transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Feature list item hover effect */
+.features li {
+  transition: all 0.3s ease;
+}
+
+.features li:hover {
+  transform: translateX(10px);
+  background: linear-gradient(90deg, rgba(15,98,184,0.05), transparent);
+  border-radius: 6px;
+}
+
+.features li::before {
+  transition: all 0.3s ease;
+}
+
+.features li:hover::before {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 5px 15px rgba(15,98,184,0.2);
+}
+
+/* FAQ interaction */
+dt {
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+dt:hover {
+  background: rgba(15,98,184,0.05);
+  transform: translateX(5px);
+}
+
+/* Scroll reveal animation */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: revealUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Glass morphism effect for header */
+.site-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Footer gradient */
+.site-footer {
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  animation: gradientFlow 8s ease infinite;
+  background-size: 200% auto;
+}
