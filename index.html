@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,10 +27,10 @@
 
       <h2>Our Core Services</h2>
       <ul class="features">
-        <li>Loans – Personal, Home, Business, Education & more</li>
+        <li>Loans – Personal, Home, Business, Education &amp; more</li>
         <li>Insurance – Life, Health, Motor, Travel</li>
-        <li>Education Fee Financing – Easy EMI options for school, college & coaching</li>
-        <li>GST & ITR Services – Filing, registration, and tax planning</li>
+        <li>Education Fee Financing – Easy EMI options for school, college &amp; coaching</li>
+        <li>GST &amp; ITR Services – Filing, registration, and tax planning</li>
       </ul>
 
       <h2>Why Choose Us?</h2>
@@ -69,7 +68,7 @@
         <li>Home Loans – Buy, build, or renovate</li>
         <li>Business Loans – Fuel your business growth</li>
         <li>Education Loans – Invest in education</li>
-        <li>Vehicle Loans – Two & four wheeler financing</li>
+        <li>Vehicle Loans – Two &amp; four wheeler financing</li>
       </ul>
 
       <h2>Insurance Services</h2>
@@ -80,11 +79,11 @@
       <h2>Education Fee Financing</h2>
       <p>School fees, college tuition and coaching payments with flexible EMI plans.</p>
 
-      <h2>GST & ITR Services</h2>
+      <h2>GST &amp; ITR Services</h2>
       <ul class="features">
-        <li>GST Registration & Filing</li>
+        <li>GST Registration &amp; Filing</li>
         <li>Income Tax Return Filing</li>
-        <li>Tax Planning & Advisory</li>
+        <li>Tax Planning &amp; Advisory</li>
       </ul>
     </section>
 
@@ -109,7 +108,7 @@
     </section>
 
     <section id="blogs" class="tab-section reveal">
-      <h1>Latest Insights & Financial Tips</h1>
+      <h1>Latest Insights &amp; Financial Tips</h1>
       <ul class="features blogs">
         <li>5 Smart Ways to Improve Your Credit Score</li>
         <li>Why Health Insurance is a Must</li>
@@ -125,16 +124,17 @@
 
       <div class="card" style="margin-top:12px;">
         <h2>Loan Enquiry</h2>
-        
+        <p class="small muted">Email: <a href="mailto:connect@cfinserve.com">connect@cfinserve.com</a></p>
+
         <form id="loan-form" class="loan-form" novalidate>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-            <input type="text" name="name" id="le-name" placeholder="Full name" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
-            <input type="email" name="email" id="le-email" placeholder="Email address" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="text" name="name" id="le-name" placeholder="Full name" required>
+            <input type="email" name="email" id="le-email" placeholder="Email address" required>
           </div>
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-            <input type="tel" name="phone" id="le-phone" placeholder="Phone number" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
-            <select name="loan_type" id="le-type" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="tel" name="phone" id="le-phone" placeholder="Phone number" required>
+            <select name="loan_type" id="le-type" required>
               <option value="">Select loan type</option>
               <option>Personal Loan</option>
               <option>Home Loan</option>
@@ -145,11 +145,11 @@
           </div>
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-            <input type="number" name="amount" id="le-amount" placeholder="Loan amount (INR)" min="0" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
-            <input type="text" name="tenure" id="le-tenure" placeholder="Tenure (e.g. 12 months)" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="number" name="amount" id="le-amount" placeholder="Loan amount (INR)" min="0" required>
+            <input type="text" name="tenure" id="le-tenure" placeholder="Tenure (e.g. 12 months)" required>
           </div>
 
-          <textarea name="message" id="le-message" placeholder="Additional details (optional)" rows="4" style="width:100%;margin-top:12px;padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)"></textarea>
+          <textarea name="message" id="le-message" placeholder="Additional details (optional)" rows="4" style="width:100%;margin-top:12px"></textarea>
 
           <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
             <button type="submit" class="btn">Submit Enquiry</button>
@@ -171,44 +171,5 @@
   <footer class="site-footer small">&copy; <span id="year"></span> Cfinserve</footer>
 
   <script src="js/main.js"></script>
-
-  <script>
-  // set year and handle loan/contact forms (static demo)
-  document.addEventListener('DOMContentLoaded', () => {
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    const loanForm = document.getElementById('loan-form');
-    const loanResult = document.getElementById('loan-result');
-
-    if (loanForm) {
-      loanForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        loanResult.textContent = '';
-
-        const name = document.getElementById('le-name').value.trim();
-        const email = document.getElementById('le-email').value.trim();
-        const phone = document.getElementById('le-phone').value.trim();
-        const type = document.getElementById('le-type').value;
-        const amount = document.getElementById('le-amount').value;
-        const tenure = document.getElementById('le-tenure').value;
-
-        if (!name || !email || !phone || !type || !amount || !tenure) {
-          loanResult.textContent = 'Please fill all required fields.';
-          loanResult.style.color = '#c0392b';
-          return;
-        }
-
-        loanResult.textContent = 'Submitting...';
-        loanResult.style.color = '#6b7280';
-        setTimeout(() => {
-          loanForm.reset();
-          loanResult.textContent = 'Thank you — your enquiry has been received. Our team will contact you shortly.';
-          loanResult.style.color = '#16a34a';
-        }, 900);
-      });
-    }
-  });
-  </script>
 </body>
 </html>
