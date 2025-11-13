@@ -1,4 +1,3 @@
-<!-- ...existing code... -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,38 +15,145 @@
       <a href="#services" data-tab="services" class="nav-link">Services</a>
       <a href="#faqs" data-tab="faqs" class="nav-link">FAQs</a>
       <a href="#blogs" data-tab="blogs" class="nav-link">Blogs</a>
-      <!-- Added Contact Us tab -->
       <a href="#contact" data-tab="contact" class="nav-link">Contact Us</a>
     </nav>
   </header>
 
   <main class="container">
-    <!-- ...existing sections... -->
+    <section id="home" class="tab-section active">
+      <h1>Welcome to Cfinserve</h1>
+      <p class="lead">Empowering Your Financial Journey</p>
+      <p>At Cfinserve, we simplify finance for individuals, families, and businesses. Whether you're looking for loans, insurance, education fee support, GST or expert tax services — we’re here to guide you with trust, speed, and transparency.</p>
+
+      <h2>Our Core Services</h2>
+      <ul class="features">
+        <li>Loans – Personal, Home, Business, Education & more</li>
+        <li>Insurance – Life, Health, Motor, Travel</li>
+        <li>Education Fee Financing – Easy EMI options for school, college & coaching</li>
+        <li>GST & ITR Services – Filing, registration, and tax planning</li>
+      </ul>
+
+      <h2>Why Choose Us?</h2>
+      <ul class="features">
+        <li>Fast Approvals</li>
+        <li>Personalized Support</li>
+        <li>Transparent Process</li>
+        <li>Trusted by Thousands</li>
+      </ul>
+    </section>
+
+    <section id="about" class="tab-section reveal ">
+      <h1>Who We Are</h1>
+      <p class="lead">Cfinserve is a comprehensive financial services provider committed to making finance accessible and stress-free.</p>
+      <h2>Mission</h2>
+      <p>To empower people with financial solutions that are simple, secure, and tailored to their needs.</p>
+      <h2>Vision</h2>
+      <p>To be India’s most trusted financial partner for loans, insurance, education, and tax services.</p>
+      <h2>Values</h2>
+      <ul class="features">
+        <li>Integrity</li>
+        <li>Customer-Centricity</li>
+        <li>Innovation</li>
+        <li>Accountability</li>
+      </ul>
+    </section>
+
+    <section id="services" class="tab-section reveal">
+      <h1>Services</h1>
+      <p class="lead">Comprehensive financial solutions to meet personal, business and educational needs.</p>
+
+      <h2>Loan Services</h2>
+      <ul class="features">
+        <li>Personal Loans – For medical, travel, or personal needs</li>
+        <li>Home Loans – Buy, build, or renovate</li>
+        <li>Business Loans – Fuel your business growth</li>
+        <li>Education Loans – Invest in education</li>
+        <li>Vehicle Loans – Two & four wheeler financing</li>
+      </ul>
+
+      <h2>Insurance Services</h2>
+      <ul class="features">
+        <li>Life, Health, Motor, Travel Insurance</li>
+      </ul>
+
+      <h2>Education Fee Financing</h2>
+      <p>School fees, college tuition and coaching payments with flexible EMI plans.</p>
+
+      <h2>GST & ITR Services</h2>
+      <ul class="features">
+        <li>GST Registration & Filing</li>
+        <li>Income Tax Return Filing</li>
+        <li>Tax Planning & Advisory</li>
+      </ul>
+    </section>
+
+    <section id="faqs" class="tab-section reveal">
+      <h1>FAQs</h1>
+      <dl>
+        <dt>What documents are required for a personal loan?</dt>
+        <dd>PAN, Aadhaar, income proof and bank statements.</dd>
+
+        <dt>How long does it take to get loan approval?</dt>
+        <dd>Typically within 24–48 hours after document submission.</dd>
+
+        <dt>Can I finance school or coaching fees?</dt>
+        <dd>Yes — we offer education fee financing.</dd>
+
+        <dt>Do you help with GST registration?</dt>
+        <dd>Yes, we handle GST registration, filing and compliance.</dd>
+
+        <dt>What types of insurance do you offer?</dt>
+        <dd>Life, health, motor and travel insurance.</dd>
+      </dl>
+    </section>
+
+    <section id="blogs" class="tab-section reveal">
+      <h1>Latest Insights & Financial Tips</h1>
+      <ul class="features blogs">
+        <li>5 Smart Ways to Improve Your Credit Score</li>
+        <li>Why Health Insurance is a Must</li>
+        <li>How to File Your ITR Without Hassle</li>
+        <li>Education Loans vs. Fee Financing</li>
+        <li>Top Tax-Saving Investments for Salaried Individuals</li>
+      </ul>
+    </section>
 
     <section id="contact" class="tab-section reveal">
       <h1>Contact Us</h1>
       <p class="lead">We're here to help — get in touch with the Cfinserve team.</p>
 
       <div class="card" style="margin-top:12px;">
-        <h2>Enquiry Form</h2>
+        <h2>Loan Enquiry</h2>
         <p class="small muted">Email: <a href="mailto:connect@cfinserve.com">connect@cfinserve.com</a></p>
 
-        <form id="contact-form" novalidate>
+        <form id="loan-form" class="loan-form" novalidate>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-            <input type="text" name="name" id="contact-name" placeholder="Full name" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
-            <input type="email" name="email" id="contact-email" placeholder="Email address" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="text" name="name" id="le-name" placeholder="Full name" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="email" name="email" id="le-email" placeholder="Email address" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
           </div>
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-            <input type="tel" name="phone" id="contact-phone" placeholder="Phone number" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
-            <input type="text" name="subject" id="contact-subject" placeholder="Subject" style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="tel" name="phone" id="le-phone" placeholder="Phone number" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <select name="loan_type" id="le-type" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+              <option value="">Select loan type</option>
+              <option>Personal Loan</option>
+              <option>Home Loan</option>
+              <option>Business Loan</option>
+              <option>Education Loan</option>
+              <option>Vehicle Loan</option>
+            </select>
           </div>
 
-          <textarea name="message" id="contact-message" placeholder="Your message" rows="5" style="width:100%;margin-top:12px;padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)"></textarea>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <input type="number" name="amount" id="le-amount" placeholder="Loan amount (INR)" min="0" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="text" name="tenure" id="le-tenure" placeholder="Tenure (e.g. 12 months)" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+          </div>
+
+          <textarea name="message" id="le-message" placeholder="Additional details (optional)" rows="4" style="width:100%;margin-top:12px;padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)"></textarea>
 
           <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
-            <button type="submit" class="btn">Send Message</button>
-            <small id="contact-result" class="small muted" aria-live="polite" style="margin-left:8px"></small>
+            <button type="submit" class="btn">Submit Enquiry</button>
+            <small id="loan-result" class="small muted" aria-live="polite" style="margin-left:8px"></small>
           </div>
         </form>
       </div>
@@ -67,44 +173,46 @@
   <script src="js/main.js"></script>
 
   <script>
-  // contact form client-side handler (static demo)
+  // set year and handle loan/contact forms (static demo)
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact-form');
-    const result = document.getElementById('contact-result');
-    if (!form) return;
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      result.textContent = '';
+    const loanForm = document.getElementById('loan-form');
+    const loanResult = document.getElementById('loan-result');
 
-      const name = document.getElementById('contact-name').value.trim();
-      const email = document.getElementById('contact-email').value.trim();
-      const phone = document.getElementById('contact-phone').value.trim();
-      const message = document.getElementById('contact-message').value.trim();
+    if (loanForm) {
+      loanForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        loanResult.textContent = '';
 
-      if (!name || !email || !phone || !message) {
-        result.textContent = 'Please complete all required fields.';
-        result.style.color = '#c0392b';
-        return;
-      }
+        const name = document.getElementById('le-name').value.trim();
+        const email = document.getElementById('le-email').value.trim();
+        const phone = document.getElementById('le-phone').value.trim();
+        const type = document.getElementById('le-type').value;
+        const amount = document.getElementById('le-amount').value;
+        const tenure = document.getElementById('le-tenure').value;
 
-      result.textContent = 'Sending...';
-      result.style.color = '#6b7280';
+        if (!name || !email || !phone || !type || !amount || !tenure) {
+          loanResult.textContent = 'Please fill all required fields.';
+          loanResult.style.color = '#c0392b';
+          return;
+        }
 
-      // simulate async submit
-      setTimeout(() => {
-        form.reset();
-        result.textContent = 'Thanks — your message has been received. We will contact you at connect@cfinserve.com or via phone.';
-        result.style.color = '#16a34a';
-      }, 900);
-    });
+        loanResult.textContent = 'Submitting...';
+        loanResult.style.color = '#6b7280';
+        setTimeout(() => {
+          loanForm.reset();
+          loanResult.textContent = 'Thank you — your enquiry has been received. Our team will contact you shortly.';
+          loanResult.style.color = '#16a34a';
+        }, 900);
+      });
+    }
   });
   </script>
 </body>
 </html>
-<!-- ...existing code... -->
 ```// filepath: d:\Workspace\python-web-app\index.html
-<!-- ...existing code... -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -122,38 +230,145 @@
       <a href="#services" data-tab="services" class="nav-link">Services</a>
       <a href="#faqs" data-tab="faqs" class="nav-link">FAQs</a>
       <a href="#blogs" data-tab="blogs" class="nav-link">Blogs</a>
-      <!-- Added Contact Us tab -->
       <a href="#contact" data-tab="contact" class="nav-link">Contact Us</a>
     </nav>
   </header>
 
   <main class="container">
-    <!-- ...existing sections... -->
+    <section id="home" class="tab-section active">
+      <h1>Welcome to Cfinserve</h1>
+      <p class="lead">Empowering Your Financial Journey</p>
+      <p>At Cfinserve, we simplify finance for individuals, families, and businesses. Whether you're looking for loans, insurance, education fee support, GST or expert tax services — we’re here to guide you with trust, speed, and transparency.</p>
+
+      <h2>Our Core Services</h2>
+      <ul class="features">
+        <li>Loans – Personal, Home, Business, Education & more</li>
+        <li>Insurance – Life, Health, Motor, Travel</li>
+        <li>Education Fee Financing – Easy EMI options for school, college & coaching</li>
+        <li>GST & ITR Services – Filing, registration, and tax planning</li>
+      </ul>
+
+      <h2>Why Choose Us?</h2>
+      <ul class="features">
+        <li>Fast Approvals</li>
+        <li>Personalized Support</li>
+        <li>Transparent Process</li>
+        <li>Trusted by Thousands</li>
+      </ul>
+    </section>
+
+    <section id="about" class="tab-section reveal ">
+      <h1>Who We Are</h1>
+      <p class="lead">Cfinserve is a comprehensive financial services provider committed to making finance accessible and stress-free.</p>
+      <h2>Mission</h2>
+      <p>To empower people with financial solutions that are simple, secure, and tailored to their needs.</p>
+      <h2>Vision</h2>
+      <p>To be India’s most trusted financial partner for loans, insurance, education, and tax services.</p>
+      <h2>Values</h2>
+      <ul class="features">
+        <li>Integrity</li>
+        <li>Customer-Centricity</li>
+        <li>Innovation</li>
+        <li>Accountability</li>
+      </ul>
+    </section>
+
+    <section id="services" class="tab-section reveal">
+      <h1>Services</h1>
+      <p class="lead">Comprehensive financial solutions to meet personal, business and educational needs.</p>
+
+      <h2>Loan Services</h2>
+      <ul class="features">
+        <li>Personal Loans – For medical, travel, or personal needs</li>
+        <li>Home Loans – Buy, build, or renovate</li>
+        <li>Business Loans – Fuel your business growth</li>
+        <li>Education Loans – Invest in education</li>
+        <li>Vehicle Loans – Two & four wheeler financing</li>
+      </ul>
+
+      <h2>Insurance Services</h2>
+      <ul class="features">
+        <li>Life, Health, Motor, Travel Insurance</li>
+      </ul>
+
+      <h2>Education Fee Financing</h2>
+      <p>School fees, college tuition and coaching payments with flexible EMI plans.</p>
+
+      <h2>GST & ITR Services</h2>
+      <ul class="features">
+        <li>GST Registration & Filing</li>
+        <li>Income Tax Return Filing</li>
+        <li>Tax Planning & Advisory</li>
+      </ul>
+    </section>
+
+    <section id="faqs" class="tab-section reveal">
+      <h1>FAQs</h1>
+      <dl>
+        <dt>What documents are required for a personal loan?</dt>
+        <dd>PAN, Aadhaar, income proof and bank statements.</dd>
+
+        <dt>How long does it take to get loan approval?</dt>
+        <dd>Typically within 24–48 hours after document submission.</dd>
+
+        <dt>Can I finance school or coaching fees?</dt>
+        <dd>Yes — we offer education fee financing.</dd>
+
+        <dt>Do you help with GST registration?</dt>
+        <dd>Yes, we handle GST registration, filing and compliance.</dd>
+
+        <dt>What types of insurance do you offer?</dt>
+        <dd>Life, health, motor and travel insurance.</dd>
+      </dl>
+    </section>
+
+    <section id="blogs" class="tab-section reveal">
+      <h1>Latest Insights & Financial Tips</h1>
+      <ul class="features blogs">
+        <li>5 Smart Ways to Improve Your Credit Score</li>
+        <li>Why Health Insurance is a Must</li>
+        <li>How to File Your ITR Without Hassle</li>
+        <li>Education Loans vs. Fee Financing</li>
+        <li>Top Tax-Saving Investments for Salaried Individuals</li>
+      </ul>
+    </section>
 
     <section id="contact" class="tab-section reveal">
       <h1>Contact Us</h1>
       <p class="lead">We're here to help — get in touch with the Cfinserve team.</p>
 
       <div class="card" style="margin-top:12px;">
-        <h2>Enquiry Form</h2>
+        <h2>Loan Enquiry</h2>
         <p class="small muted">Email: <a href="mailto:connect@cfinserve.com">connect@cfinserve.com</a></p>
 
-        <form id="contact-form" novalidate>
+        <form id="loan-form" class="loan-form" novalidate>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-            <input type="text" name="name" id="contact-name" placeholder="Full name" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
-            <input type="email" name="email" id="contact-email" placeholder="Email address" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="text" name="name" id="le-name" placeholder="Full name" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="email" name="email" id="le-email" placeholder="Email address" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
           </div>
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-            <input type="tel" name="phone" id="contact-phone" placeholder="Phone number" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
-            <input type="text" name="subject" id="contact-subject" placeholder="Subject" style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="tel" name="phone" id="le-phone" placeholder="Phone number" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <select name="loan_type" id="le-type" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+              <option value="">Select loan type</option>
+              <option>Personal Loan</option>
+              <option>Home Loan</option>
+              <option>Business Loan</option>
+              <option>Education Loan</option>
+              <option>Vehicle Loan</option>
+            </select>
           </div>
 
-          <textarea name="message" id="contact-message" placeholder="Your message" rows="5" style="width:100%;margin-top:12px;padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)"></textarea>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <input type="number" name="amount" id="le-amount" placeholder="Loan amount (INR)" min="0" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+            <input type="text" name="tenure" id="le-tenure" placeholder="Tenure (e.g. 12 months)" required style="padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)">
+          </div>
+
+          <textarea name="message" id="le-message" placeholder="Additional details (optional)" rows="4" style="width:100%;margin-top:12px;padding:10px;border-radius:8px;border:1px solid rgba(12,30,60,0.06)"></textarea>
 
           <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
-            <button type="submit" class="btn">Send Message</button>
-            <small id="contact-result" class="small muted" aria-live="polite" style="margin-left:8px"></small>
+            <button type="submit" class="btn">Submit Enquiry</button>
+            <small id="loan-result" class="small muted" aria-live="polite" style="margin-left:8px"></small>
           </div>
         </form>
       </div>
@@ -173,39 +388,42 @@
   <script src="js/main.js"></script>
 
   <script>
-  // contact form client-side handler (static demo)
+  // set year and handle loan/contact forms (static demo)
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact-form');
-    const result = document.getElementById('contact-result');
-    if (!form) return;
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      result.textContent = '';
+    const loanForm = document.getElementById('loan-form');
+    const loanResult = document.getElementById('loan-result');
 
-      const name = document.getElementById('contact-name').value.trim();
-      const email = document.getElementById('contact-email').value.trim();
-      const phone = document.getElementById('contact-phone').value.trim();
-      const message = document.getElementById('contact-message').value.trim();
+    if (loanForm) {
+      loanForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        loanResult.textContent = '';
 
-      if (!name || !email || !phone || !message) {
-        result.textContent = 'Please complete all required fields.';
-        result.style.color = '#c0392b';
-        return;
-      }
+        const name = document.getElementById('le-name').value.trim();
+        const email = document.getElementById('le-email').value.trim();
+        const phone = document.getElementById('le-phone').value.trim();
+        const type = document.getElementById('le-type').value;
+        const amount = document.getElementById('le-amount').value;
+        const tenure = document.getElementById('le-tenure').value;
 
-      result.textContent = 'Sending...';
-      result.style.color = '#6b7280';
+        if (!name || !email || !phone || !type || !amount || !tenure) {
+          loanResult.textContent = 'Please fill all required fields.';
+          loanResult.style.color = '#c0392b';
+          return;
+        }
 
-      // simulate async submit
-      setTimeout(() => {
-        form.reset();
-        result.textContent = 'Thanks — your message has been received. We will contact you at connect@cfinserve.com or via phone.';
-        result.style.color = '#16a34a';
-      }, 900);
-    });
+        loanResult.textContent = 'Submitting...';
+        loanResult.style.color = '#6b7280';
+        setTimeout(() => {
+          loanForm.reset();
+          loanResult.textContent = 'Thank you — your enquiry has been received. Our team will contact you shortly.';
+          loanResult.style.color = '#16a34a';
+        }, 900);
+      });
+    }
   });
   </script>
 </body>
 </html>
-<!-- ...existing code... -->
