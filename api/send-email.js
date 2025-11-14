@@ -10,9 +10,15 @@ module.exports = async function handler(req, res) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
+    const receiver = process.env.RECEIVER_EMAIL; // ← From Vercel env variable
+
+    if (!receiver) {
+      return res.status(500).json({ error: "RECEIVER_EMAIL not set" });
+    }
+
     const data = await resend.emails.send({
       from: "Cfinserve <noreply@cfinserve.com>",
-      to: "amolsinare0610@gmail.com",
+      to: receiver, // ← dynamic
       subject: "New Loan Enquiry",
       html: `
         <h2>Loan Enquiry</h2>
