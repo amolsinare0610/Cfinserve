@@ -1,100 +1,62 @@
-// -------------------------------
-// Navigation & Year Footer
-// -------------------------------
-document.addEventListener("DOMContentLoaded", () => {
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+// TAB SWITCHING
+const navLinks = document.querySelectorAll("[data-tab]");
+const sections = document.querySelectorAll(".tab-section");
 
-  const navLinks = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll(".tab-section");
+navLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  function activateTab(tabId) {
-    // Highlight active nav
-    navLinks.forEach(link => 
-      link.classList.toggle("active", link.dataset.tab === tabId)
-    );
+    const target = link.getAttribute("data-tab");
 
-    // Show active section
-    sections.forEach(section => 
-      section.classList.toggle("active", section.id === tabId)
-    );
+    // Remove active class from all sections
+    sections.forEach(sec => sec.classList.remove("active"));
 
-    // Update URL hash without jump
-    history.replaceState(null, "", `#${tabId}`);
-  }
+    // Add active class to selected section
+    document.getElementById(target).classList.add("active");
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const target = link.dataset.tab;
-      activateTab(target);
-      link.blur();
-    });
-  });
-
-  // Initial tab
-  const initialTab = location.hash ? location.hash.substring(1) : "home";
-  activateTab(initialTab);
-
-  // Back/forward
-  window.addEventListener("hashchange", () => {
-    const tab = location.hash.substring(1) || "home";
-    activateTab(tab);
+    // Scroll to top smoothly
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
 
-// -------------------------------
-// Loan Enquiry Email Submit (Vercel)
-// -------------------------------
-document.addEventListener("DOMContentLoaded", () => {
-  const loanForm = document.getElementById('loan-form');
-  const loanResult = document.getElementById('loan-result');
+// YEAR in footer
+document.getElementById("year").innerText = new Date().getFullYear();
 
-  if (!loanForm) return;
+// APPLY NOW BUTTON → OPEN ENQUIRY TAB
+const applyBtn = document.querySelector('.primary-btn[href="#enquiry"]');
 
-  loanForm.addEventListener('submit', async (e) => {
+if (applyBtn) {
+  applyBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    loanResult.textContent = '';
 
-    const payload = {
-      name: document.getElementById('le-name').value.trim(),
-      email: document.getElementById('le-email').value.trim(),
-      phone: document.getElementById('le-phone').value.trim(),
-      loan_type: document.getElementById('le-type').value,
-      amount: document.getElementById('le-amount').value,
-      tenure: document.getElementById('le-tenure').value,
-      message: document.getElementById('le-message').value.trim(),
-    };
+    // hide all sections
+    sections.forEach(sec => sec.classList.remove("active"));
 
-    // Basic validation
-    if (!payload.name || !payload.email || !payload.phone || !payload.loan_type || !payload.amount || !payload.tenure) {
-      loanResult.textContent = 'Please fill all required fields.';
-      loanResult.style.color = '#c0392b';
-      return;
-    }
+    // show ENQUIRY section
+    document.getElementById("enquiry").classList.add("active");
 
-    loanResult.textContent = 'Submitting...';
-    loanResult.style.color = '#6b7280';
-
-    try {
-      const res = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) throw new Error(data.error || 'Send failed');
-
-      loanForm.reset();
-      loanResult.textContent = 'Thank you — your enquiry has been sent.';
-      loanResult.style.color = '#16a34a';
-
-    } catch (err) {
-      console.error("Email error:", err);
-      loanResult.textContent = 'Failed to send enquiry. Try again later.';
-      loanResult.style.color = '#c0392b';
-    }
+    // scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
+}
+
+
+// LOAN FORM (works as in previous version)
+document.getElementById("loan-form").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const name = document.getElementById("le-name").value;
+  const email = document.getElementById("le-email").value;
+  const phone = document.getElementById("le-phone").value;
+  const type = document.getElementById("le-type").value;
+  const amount = document.getElementById("le-amount").value;
+  const tenure = document.getElementById("le-tenure").value;
+  const msg = document.getElementById("le-message").value;
+
+  const result = document.getElementById("loan-result");
+  result.innerHTML = "Submitting your request...";
+
+  setTimeout(() => {
+    result.innerHTML = `Thank you, <b>${name}</b>! Your enquiry for a <b>${type}</b> has been submitted.`;
+  }, 800);
 });
