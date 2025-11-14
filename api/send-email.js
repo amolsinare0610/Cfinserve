@@ -1,6 +1,6 @@
-import { Resend } from "resend";
+const { Resend } = require("resend");
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   try {
     const data = await resend.emails.send({
       from: "Cfinserve <noreply@cfinserve.com>",
-      to: "amolsinare0610@gmail.com", // change to your email
+      to: "amolsinare0610@gmail.com",
       subject: "New Loan Enquiry",
       html: `
         <h2>Loan Enquiry</h2>
@@ -31,4 +31,4 @@ export default async function handler(req, res) {
     console.error("EMAIL ERROR:", error);
     return res.status(500).json({ error: error.message });
   }
-}
+};
