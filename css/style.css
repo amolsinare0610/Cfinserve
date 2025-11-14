@@ -1560,3 +1560,30 @@ dt:hover {
   animation: gradientFlow 8s ease infinite;
   background-size: 200% auto;
 }
+
+
+/* Brand wrapper */
+.brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1f2937; /* adjust for theme */
+}
+
+/* Logo container */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;  /* spacing between logo + text */
+}
+
+/* Logo image */
+.logo img {
+  height: 36px;      /* adjust size */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
