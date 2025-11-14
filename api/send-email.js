@@ -8,7 +8,6 @@ module.exports = async function handler(req, res) {
   const { name, email, phone, loan_type, amount, tenure, message } = req.body;
 
   const resend = new Resend(process.env.RESEND_API_KEY);
-
   try {
     const receiver = process.env.RECEIVER_EMAIL; // ← From Vercel env variable
 
