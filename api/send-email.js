@@ -2,35 +2,33 @@ import { Resend } from "resend";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({ error: "Method Not Allowed" });
   }
 
+  const { name, email, phone, loan_type, amount, tenure, message } = req.body;
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-
-    const { name, email, phone, loan_type, amount, tenure, message } = req.body;
-
-    const html = `
-      <h2>New Loan Enquiry</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
-      <p><strong>Loan Type:</strong> ${loan_type}</p>
-      <p><strong>Amount:</strong> ${amount}</p>
-      <p><strong>Tenure:</strong> ${tenure}</p>
-      <p><strong>Message:</strong> ${message}</p>
-    `;
-
-    const response = await resend.emails.send({
-      from: process.env.FROM_EMAIL, // MUST be @cfinserve.com
-      to: process.env.RECEIVE_EMAIL,
+    const data = await resend.emails.send({
+      from: "Cfinserve <noreply@cfinserve.com>",
+      to: "amolsinare0610@gmail.com", // change to your email
       subject: "New Loan Enquiry",
-      html,
+      html: `
+        <h2>Loan Enquiry</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Loan Type:</b> ${loan_type}</p>
+        <p><b>Amount:</b> ${amount}</p>
+        <p><b>Tenure:</b> ${tenure}</p>
+        <p><b>Message:</b> ${message}</p>
+      `
     });
 
-    console.log("RESEND_RESPONSE:", response);
-
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true, data });
   } catch (error) {
     console.error("EMAIL ERROR:", error);
-    return res.status(
+    return res.status(500).json({ error: error.message });
+  }
+}
