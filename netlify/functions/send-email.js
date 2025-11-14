@@ -2,9 +2,22 @@ const nodemailer = require("nodemailer");
 
 exports.handler = async (event) => {
   try {
-    const data = JSON.parse(event.body);
+    // Debug: log which environment variables exist (not actual values)
+    const envStatus = {
+      HOST: !!process.env.SMTP_HOST,
+      PORT: !!process.env.SMTP_PORT,
+      USER: !!process.env.SMTP_USER,
+      PASS: !!process.env.SMTP_PASS,
+      FROM: !!process.env.SMTP_FROM,
+      TO: !!process.env.SMTP_TO
+    };
 
-    // Build the email body
+    console.log("SMTP ENV STATUS:", envStatus);
+
+    const data = JSON.parse(event.body || '{}');
+
+    console.log("Received Payload:", data); // Debug incoming data
+
     const text = `
 Loan Enquiry Received:
 
@@ -17,7 +30,9 @@ Tenure: ${data.tenure}
 
 Message:
 ${data.message || "(no message)"}
-`;
+`;    
+
+    console.log("Email text generated");
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -29,21 +44,28 @@ ${data.message || "(no message)"}
       },
     });
 
+    console.log("Transporter created");
+
     await transporter.sendMail({
       from: process.env.SMTP_FROM,
-      to: process.env.SMTP_TO, // set this in Netlify env vars
+      to: process.env.SMTP_TO,
       subject: "New Loan Enquiry",
       text,
     });
 
+    console.log("Email successfully sent");
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Email sent!" }),
+      body: JSON.stringify({ message: "Email sent!" })
     };
+
   } catch (error) {
+    console.error("ERROR in send-email function:", error);
+
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message }),
+      body: JSON.stringify({ error: error.message })
     };
   }
 };
