@@ -1,35 +1,100 @@
-import { Resend } from 'resend';
+// -------------------------------
+// Navigation & Year Footer
+// -------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sections = document.querySelectorAll(".tab-section");
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+  function activateTab(tabId) {
+    // Highlight active nav
+    navLinks.forEach(link => 
+      link.classList.toggle("active", link.dataset.tab === tabId)
+    );
+
+    // Show active section
+    sections.forEach(section => 
+      section.classList.toggle("active", section.id === tabId)
+    );
+
+    // Update URL hash without jump
+    history.replaceState(null, "", `#${tabId}`);
   }
 
-  const { name, email, phone, loan_type, amount, tenure, message } = req.body;
-
-  try {
-    const sendResult = await resend.emails.send({
-      from: "CFInserve <noreply@yourdomain.com>",
-      to: process.env.RECEIVE_EMAIL,
-      subject: "New Loan Enquiry",
-      html: `
-        <h2>New Loan Enquiry</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Loan Type:</strong> ${loan_type}</p>
-        <p><strong>Amount:</strong> ${amount}</p>
-        <p><strong>Tenure:</strong> ${tenure}</p>
-        <p><strong>Message:</strong><br>${message}</p>
-      `
+  navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = link.dataset.tab;
+      activateTab(target);
+      link.blur();
     });
+  });
 
-    return res.status(200).json({ success: true, id: sendResult.id });
+  // Initial tab
+  const initialTab = location.hash ? location.hash.substring(1) : "home";
+  activateTab(initialTab);
 
-  } catch (err) {
-    console.error("RESEND ERROR:", err);
-    return res.status(500).json({ error: "Email sending failed" });
-  }
-}
+  // Back/forward
+  window.addEventListener("hashchange", () => {
+    const tab = location.hash.substring(1) || "home";
+    activateTab(tab);
+  });
+});
+
+// -------------------------------
+// Loan Enquiry Email Submit (Vercel)
+// -------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const loanForm = document.getElementById('loan-form');
+  const loanResult = document.getElementById('loan-result');
+
+  if (!loanForm) return;
+
+  loanForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    loanResult.textContent = '';
+
+    const payload = {
+      name: document.getElementById('le-name').value.trim(),
+      email: document.getElementById('le-email').value.trim(),
+      phone: document.getElementById('le-phone').value.trim(),
+      loan_type: document.getElementById('le-type').value,
+      amount: document.getElementById('le-amount').value,
+      tenure: document.getElementById('le-tenure').value,
+      message: document.getElementById('le-message').value.trim(),
+    };
+
+    // Basic validation
+    if (!payload.name || !payload.email || !payload.phone || !payload.loan_type || !payload.amount || !payload.tenure) {
+      loanResult.textContent = 'Please fill all required fields.';
+      loanResult.style.color = '#c0392b';
+      return;
+    }
+
+    loanResult.textContent = 'Submitting...';
+    loanResult.style.color = '#6b7280';
+
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || 'Send failed');
+
+      loanForm.reset();
+      loanResult.textContent = 'Thank you — your enquiry has been sent.';
+      loanResult.style.color = '#16a34a';
+
+    } catch (err) {
+      console.error("Email error:", err);
+      loanResult.textContent = 'Failed to send enquiry. Try again later.';
+      loanResult.style.color = '#c0392b';
+    }
+  });
+});

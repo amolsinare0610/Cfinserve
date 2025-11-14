@@ -1,34 +1,17 @@
-import nodemailer from "nodemailer";
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const {
-    name,
-    email,
-    phone,
-    loan_type,
-    amount,
-    tenure,
-    message
-  } = req.body;
+  const { name, email, phone, loan_type, amount, tenure, message } = req.body;
 
   try {
-    // Transporter (SMTP)
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: false,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
-      }
-    });
-
-    await transporter.sendMail({
-      from: `"CFInserve Website" <${process.env.SMTP_USER}>`,
+    const sendResult = await resend.emails.send({
+      from: "CFInserve <noreply@yourdomain.com>",
       to: process.env.RECEIVE_EMAIL,
       subject: "New Loan Enquiry",
       html: `
@@ -43,10 +26,10 @@ export default async function handler(req, res) {
       `
     });
 
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true, id: sendResult.id });
 
   } catch (err) {
-    console.error("EMAIL ERROR:", err);
+    console.error("RESEND ERROR:", err);
     return res.status(500).json({ error: "Email sending failed" });
   }
 }
