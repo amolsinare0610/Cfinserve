@@ -41,22 +41,61 @@ if (applyBtn) {
 }
 
 
-// LOAN FORM (works as in previous version)
-document.getElementById("loan-form").addEventListener("submit", function (event) {
+// LOAN FORM (Updated for Vercel + Resend API)
+document.getElementById("loan-form").addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  const name = document.getElementById("le-name").value;
-  const email = document.getElementById("le-email").value;
-  const phone = document.getElementById("le-phone").value;
+  const name = document.getElementById("le-name").value.trim();
+  const email = document.getElementById("le-email").value.trim();
+  const phone = document.getElementById("le-phone").value.trim();
   const type = document.getElementById("le-type").value;
-  const amount = document.getElementById("le-amount").value;
-  const tenure = document.getElementById("le-tenure").value;
-  const msg = document.getElementById("le-message").value;
+  const amount = document.getElementById("le-amount").value.trim();
+  const tenure = document.getElementById("le-tenure").value.trim();
+  const msg = document.getElementById("le-message").value.trim();
 
   const result = document.getElementById("loan-result");
-  result.innerHTML = "Submitting your request...";
 
-  setTimeout(() => {
-    result.innerHTML = `Thank you, <b>${name}</b>! Your enquiry for a <b>${type}</b> has been submitted.`;
-  }, 800);
+  // Validate
+  if (!name || !email || !phone || !type || !amount || !tenure) {
+    result.innerHTML = "⚠️ Please fill all required fields.";
+    result.style.color = "#c0392b";
+    return;
+  }
+
+  result.innerHTML = "Submitting your request...";
+  result.style.color = "#6b7280";
+
+  // Payload for API
+  const payload = {
+    name,
+    email,
+    phone,
+    loan_type: type,
+    amount,
+    tenure,
+    message: msg
+  };
+
+  try {
+    const res = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.error || "Send failed");
+
+    // SUCCESS
+    result.innerHTML = `Thank you, <b>${name}</b>! Your enquiry has been submitted.`;
+    result.style.color = "#16a34a";
+
+    document.getElementById("loan-form").reset();
+
+  } catch (err) {
+    console.error("EMAIL ERROR:", err);
+    result.innerHTML = "❌ Failed to send your enquiry. Please try again later.";
+    result.style.color = "#c0392b";
+  }
 });
