@@ -48,8 +48,7 @@ document.getElementById("loan-form").addEventListener("submit", async function (
   const name = document.getElementById("le-name").value.trim();
   const email = document.getElementById("le-email").value.trim();
   const phone = document.getElementById("le-phone").value.trim();
-  const msg = document.getElementById("le-message").value.trim();
-
+ 
   const result = document.getElementById("loan-result");
 
   // Validate
@@ -66,8 +65,7 @@ document.getElementById("loan-form").addEventListener("submit", async function (
   const payload = {
     name,
     email,
-    phone,
-    message: msg
+    phone
   };
 
   try {
