@@ -48,9 +48,6 @@ document.getElementById("loan-form").addEventListener("submit", async function (
   const name = document.getElementById("le-name").value.trim();
   const email = document.getElementById("le-email").value.trim();
   const phone = document.getElementById("le-phone").value.trim();
-  const type = document.getElementById("le-type").value;
-  const amount = document.getElementById("le-amount").value.trim();
-  const tenure = document.getElementById("le-tenure").value.trim();
   const msg = document.getElementById("le-message").value.trim();
 
   const result = document.getElementById("loan-result");
@@ -70,9 +67,6 @@ document.getElementById("loan-form").addEventListener("submit", async function (
     name,
     email,
     phone,
-    loan_type: type,
-    amount,
-    tenure,
     message: msg
   };
 
