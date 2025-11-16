@@ -53,7 +53,7 @@ document.getElementById("loan-form").addEventListener("submit", async function (
   const result = document.getElementById("loan-result");
 
   // Validate
-  if (!name || !email || !phone || !type || !amount || !tenure) {
+  if (!name || !email || !phone ) {
     result.innerHTML = "⚠️ Please fill all required fields.";
     result.style.color = "#c0392b";
     return;
