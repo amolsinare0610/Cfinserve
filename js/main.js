@@ -91,3 +91,48 @@ document.getElementById("loan-form").addEventListener("submit", async function (
     result.style.color = "#c0392b";
   }
 });
+
+
+document.getElementById('loan-calculator-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  calculateLoan();
+});
+
+document.getElementById('calc-reset').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('loan-calculator-form').reset();
+  document.getElementById('calc-result').classList.remove('show');
+  document.getElementById('calc-result').style.display = 'none';
+});
+
+function calculateLoan() {
+  const amount = parseFloat(document.getElementById('calc-amount').value);
+  const rate = parseFloat(document.getElementById('calc-rate').value);
+  const tenure = parseFloat(document.getElementById('calc-tenure').value);
+  const unit = document.getElementById('calc-tenure-unit').value;
+
+  if (!amount || !rate || !tenure) {
+    alert('Please fill all fields');
+    return;
+  }
+
+  // Convert tenure to months
+  const months = unit === 'years' ? tenure * 12 : tenure;
+
+  // Calculate EMI using formula: EMI = P * R * (1+R)^N / ((1+R)^N - 1)
+  const monthlyRate = rate / (12 * 100);
+  const numerator = amount * monthlyRate * Math.pow(1 + monthlyRate, months);
+  const denominator = Math.pow(1 + monthlyRate, months) - 1;
+  const emi = numerator / denominator;
+
+  const totalAmount = emi * months;
+  const totalInterest = totalAmount - amount;
+
+  // Display results
+  document.getElementById('result-emi').textContent = '₹' + Math.round(emi).toLocaleString('en-IN');
+  document.getElementById('result-total').textContent = '₹' + Math.round(totalAmount).toLocaleString('en-IN');
+  document.getElementById('result-interest').textContent = '₹' + Math.round(totalInterest).toLocaleString('en-IN');
+
+  document.getElementById('calc-result').classList.add('show');
+  document.getElementById('calc-result').style.display = 'block';
+}

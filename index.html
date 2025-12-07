@@ -10,7 +10,7 @@
 <body>
   <!-- NAVBAR -->
   <header class="navbar">
-    <div class="container nav-content">
+    <div class="header-container nav-content">
       <a class="brand" href="#home" data-tab="home">
         <img src="static/images/logo.jpeg" alt="Cfinserve Logo" class="logo">
         <span>Cfinserve</span>
@@ -26,108 +26,349 @@
   </header>
 
   <!-- HOME -->
-  <section id="home" class="tab-section active hero reveal">
+ <section id="home" class="tab-section active hero reveal full-screen-section full-bleed">
     <div class="container hero-inner">
-      <h1>Smart Financial Solutions for a Better Tomorrow</h1>
-      <p>Easy loans, transparent process, and expert financial guidance.</p>
+      <h1>Instant Loans Across India</h1>
+      <p>Minimal documentation | Flexible repayment options | Fast processing | Transparent process</p>
       <a href="#enquiry" class="primary-btn">Apply Now</a>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="tab-section services reveal">
+  <!-- WHY CHOOSE CFIN -->
+ <section id="why-choose" class="why-choose tab-section reveal full-bleed">
     <div class="container">
+      <h2 class="section-title">Why Choose CFin?</h2>
+      
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">✅</div>
+          <h3>Pan-India Coverage</h3>
+          <p>Services available in every corner of India</p>
+        </div>
+        
+        <div class="why-card reveal">
+          <div class="why-icon">🔍</div>
+          <h3>Transparent Process</h3>
+          <p>No hidden charges, clear terms</p>
+        </div>
+        
+        <div class="why-card reveal">
+          <div class="why-icon">⏱️</div>
+          <h3>Fast Approvals</h3>
+          <p>Quick turnaround with minimal documentation</p>
+        </div>
+        
+        <div class="why-card reveal">
+          <div class="why-icon">🤝</div>
+          <h3>Trusted Partners</h3>
+          <p>Tie-ups with leading banks and NBFCs</p>
+        </div>
+        
+        <div class="why-card reveal">
+          <div class="why-icon">📞</div>
+          <h3>Dedicated Support</h3>
+          <p>Personalized assistance at every step</p>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="why-icon">📱</div>
+          <h3>100% Digital & Paperless</h3>
+          <p>Complete online process with zero paperwork</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials tab-section reveal full-bleed">
+    <div class="container">
+      <h2 class="section-title">Hear From Our Customers</h2>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-content">
+            <p>"CFin helped me secure a home loan with ease. Their team was supportive and transparent throughout."</p>
+            <div class="testimonial-author">— Priya S., Pune</div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card reveal">
+          <div class="testimonial-content">
+            <p>"I got my business loan approved in just 3 days. Highly recommend CFin!"</p>
+            <div class="testimonial-author">— Rajesh M., Delhi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+ <section id="services" class="tab-section services reveal full-screen-section full-bleed">
+    <div class="service-container">
       <h2 class="section-title">Our Services</h2>
 
       <div class="service-grid">
         <div class="service-card reveal">
-          <h3>Personal Loan</h3>
-          <p>Fast approval with minimal documentation.</p>
+          <h3>🏠 Home Loans</h3>
+          <p>Affordable financing for your dream home</p>
         </div>
+
         <div class="service-card reveal">
-          <h3>Business Loan</h3>
-          <p>Expand your business with flexible plans.</p>
+          <h3>🚗 Vehicle Loans</h3>
+          <p>Loans for cars, bikes, and commercial vehicles</p>
         </div>
+
         <div class="service-card reveal">
-          <h3>Home Loan</h3>
-          <p>Affordable housing finance options.</p>
+          <h3>🎓 Education Loans</h3>
+          <p>Funding for higher education in India and abroad</p>
         </div>
+
         <div class="service-card reveal">
-          <h3>Credit Advisory</h3>
-          <p>Improve credit scores with expert guidance.</p>
+          <h3>💳 Personal Loans</h3>
+          <p>Quick and easy loans for personal expenses</p>
         </div>
+
+        <div class="service-card reveal">
+          <h3>🏢 Business Loans</h3>
+          <p>Capital for startups, SMEs, and large enterprises</p>
+        </div>
+
+        <div class="service-card reveal">
+          <h3>🏥 Medical Loans</h3>
+          <p>Emergency funds for healthcare and treatment</p>
+        </div>
+
+        <div class="service-card reveal">
+          <h3>🧳 Travel Loans</h3>
+          <p>Finance your domestic or international travel plans</p>
+        </div>
+
+        <div class="service-card reveal">
+          <h3>🏘️ Loan Against Property</h3>
+          <p>Unlock the value of your property for personal or business use</p>
+        </div>
+      </div>
+
+      <!-- Loan Calculator -->
+      <div class="loan-calculator reveal" aria-labelledby="loan-calc-title">
+        <h3 id="loan-calc-title">Loan Calculator</h3>
+
+        <form id="loan-calculator-form" class="calc-form" novalidate>
+          <div class="calc-row">
+            <label for="calc-amount">Loan Amount (₹)</label>
+            <input type="number" id="calc-amount" min="0" step="1000" placeholder="Enter loan amount" required>
+          </div>
+
+          <div class="calc-row">
+            <label for="calc-rate">Annual Interest Rate (%)</label>
+            <input type="number" id="calc-rate" min="0" step="0.01" placeholder="Enter interest rate" required>
+          </div>
+
+          <div class="calc-row">
+            <label for="calc-tenure">Tenure</label>
+            <div class="tenure-row">
+              <input type="number" id="calc-tenure" min="1" step="1" placeholder="Enter tenure" required>
+              <select id="calc-tenure-unit" aria-label="tenure unit">
+                <option value="months" selected>Months</option>
+                <option value="years">Years</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-actions">
+            <button type="submit" class="primary-btn">Calculate EMI</button>
+            <button type="reset" id="calc-reset" class="primary-btn">Reset</button>
+          </div>
+
+          <div class="calc-result" id="calc-result" aria-live="polite">
+            <h4>Loan Summary</h4>
+            <div class="result-row">
+              <span class="result-label">Monthly EMI</span>
+              <span class="result-value" id="result-emi">₹0</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Total Amount</span>
+              <span class="result-value" id="result-total">₹0</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Total Interest</span>
+              <span class="result-value" id="result-interest">₹0</span>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </section>
 
   <!-- ENQUIRY -->
-  <section id="enquiry" class="tab-section enquiry reveal">
+  <section id="enquiry" class="tab-section enquiry reveal full-screen-section full-bleed">
     <div class="container">
       <h2 class="section-title">Loan Enquiry</h2>
 
+
       <form id="loan-form" class="form">
-        <div class="form-grid">
-          <input type="text" id="le-name" placeholder="Full Name" required />
-          <input type="email" id="le-email" placeholder="Email" required />
-          <input type="tel" id="le-phone" placeholder="Phone Number" required />
-        </div>
+  <div class="form-grid">
+    <input type="text" id="le-name" placeholder="Full Name" required>
+    <input type="email" id="le-email" placeholder="Email" required>
+    <input type="tel" id="le-phone" placeholder="Phone Number" required>
+  </div>
 
-        <button type="submit" class="primary-btn">Submit Enquiry</button>
+  <div class="btn-row">
+    <button type="submit" class="primary-btn">Submit Enquiry</button>
+  </div>
 
-        <p id="loan-result" class="form-result"></p>
-      </form>
+  <p id="loan-result" class="form-result"></p>
+</form>
     </div>
   </section>
 
 <!-- ABOUT -->
-<section id="about" class="tab-section about reveal">
+<section id="about" class="tab-section about reveal full-screen-section full-bleed">
   <div class="container">
     <h2 class="section-title">About Us</h2>
 
-    <p>
-      Cfinserve provides transparent and fast financial services to individuals and businesses.
-      Our mission is to simplify finance with trust and expertise.
+    <p class="about-intro">
+      CFin is your trusted financial partner, offering comprehensive loan solutions across India. With a commitment to Capital, Clarity, and Confidence, we empower individuals and businesses to achieve their financial goals with transparency and ease.
     </p>
 
-    <div class="about-info">
+    <!-- VALUES SECTION -->
+    <div class="values-section">
+      <h3 class="values-title">Values We Stand For</h3>
+      
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">👥</div>
+          <h4>Customer First</h4>
+          <p>We put customer needs, clarity, and convenience at the heart of every decision.</p>
+        </div>
 
-  <div class="about-block">
-    <h3>Office Addresses</h3>
-    <div class="about-list">
-      <div class="item">
-        <span class="label">Head Office</span>
-        <span class="value">Pune</span>
-      </div>
+        <div class="value-card reveal">
+          <div class="value-icon">📋</div>
+          <h4>Transparency</h4>
+          <p>Clear terms, no hidden fees, and honest communication at every step.</p>
+        </div>
 
-      <div class="item">
-        <span class="label">Other Locations</span>
-        <span class="value">Mumbai, Ahilyanagar</span>
+        <div class="value-card reveal">
+          <div class="value-icon">⚡</div>
+          <h4>Speed & Simplicity</h4>
+          <p>Fast processing, minimal documentation, and an effortless digital experience.</p>
+        </div>
+
+        <div class="value-card reveal">
+          <div class="value-icon">🌍</div>
+          <h4>Accessibility for All</h4>
+          <p>We aim to make credit available to everyone—anywhere, anytime.</p>
+        </div>
+
+        <div class="value-card reveal">
+          <div class="value-icon">💰</div>
+          <h4>Capital</h4>
+          <p>Strong financial foundation enabling sustainable growth and reliable service delivery.</p>
+        </div>
+
+        <div class="value-card reveal">
+          <div class="value-icon">✨</div>
+          <h4>Confidence</h4>
+          <p>Building trust through consistent performance and customer satisfaction.</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="about-block">
-    <h3>Upcoming Locations</h3>
-    <div class="about-list">
-      <div class="item">
-        <span class="value">Sambhajinagar</span>
-      </div>
-      <div class="item">
-        <span class="value">Amaravati</span>
+    <!-- MISSION & VISION -->
+    <div class="mission-vision-section">
+      <h3 class="section-subtitle">Our Mission & Vision</h3>
+      
+      <div class="mission-vision-grid">
+        <div class="mission-card reveal">
+          <div class="mission-icon">🎯</div>
+          <h4>Our Mission</h4>
+          <p>To provide accessible, transparent, and hassle-free financial solutions that empower every individual and business to grow and achieve their dreams.</p>
+        </div>
+
+        <div class="vision-card reveal">
+          <div class="vision-icon">🚀</div>
+          <h4>Our Vision</h4>
+          <p>To be India's most trusted and customer-centric financial services provider, revolutionizing the lending experience with technology and innovation.</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="about-block">
-    <h3>Contact</h3>
-    <p>
-      <a href="mailto:connect@cfinserve.com" class="email-link">
-        connect@cfinserve.com
-      </a>
-    </p>
-  </div>
+   
 
-</div>
+    <!-- OFFICE LOCATIONS SECTION -->
+    <div class="office-locations-section">
+      <h3 class="section-subtitle">Our Offices</h3>
+      
+      <div class="about-blocks-wrapper">
+        
+        <div class="about-block reveal">
+          <div class="about-block-content">
+            <h3>Office Addresses</h3>
+            <p class="block-subtitle">Where We Serve You</p>
+            <div class="about-list">
+              <div class="item">
+                <span class="label">🏢 Head Office</span>
+                <span class="value">Pune, Maharashtra</span>
+              </div>
+              <div class="item">
+                <span class="label">📍 Branch</span>
+                <span class="value">Mumbai, Maharashtra</span>
+              </div>
+              <div class="item">
+                <span class="label">📍 Branch</span>
+                <span class="value">Ahilyanagar, Maharashtra</span>
+              </div>
+            </div>
+       
+          </div>
+         
+        </div>
+
+        <div class="about-block reveal">
+          <div class="about-block-content">
+            <h3>Upcoming Locations</h3>
+            <p class="block-subtitle">Expanding Our Reach</p>
+            <div class="about-list">
+              <div class="item">
+                <span class="label">🚀 Coming Soon</span>
+                <span class="value">Sambhajinagar</span>
+              </div>
+              <div class="item">
+                <span class="label">🚀 Coming Soon</span>
+                <span class="value">Amaravati</span>
+              </div>
+            </div>
+           
+           
+          </div>
+        </div>
+
+      </div>
+
+      <div class="about-block reveal">
+        <div class="about-block-content">
+          <h3>Get In Touch</h3>
+          <p class="block-subtitle">We're Here to Help</p>
+          <div class="contact-methods">
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <div class="contact-details">
+                <p class="contact-label">Email</p>
+                <a href="mailto:connect@cfinserve.com" class="email-link">connect@cfinserve.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">⏰</span>
+              <div class="contact-details">
+                <p class="contact-label">Business Hours</p>
+                <p class="contact-value">Monday - Friday: 9 AM - 6 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+
+    </div>
 
   </div>
 </section>
