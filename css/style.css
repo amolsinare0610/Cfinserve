@@ -1820,6 +1820,10 @@ textarea {
   .hero-inner p {
     font-size: 1rem;
   }
+  .hero-inner p.textclass {
+    font-size: smaller !important;
+    color: darkblue;
+  }
 }
 
 
@@ -1833,6 +1837,10 @@ textarea {
     display: block !important;      /* Force vertical stack */
   }
 
+  .hero-inner p.textclass {
+    font-size: 0.7rem !important;
+    color: darkblue;
+  }
   .hero-inner {
     text-align: center;
     margin-bottom: 25px;
@@ -1845,7 +1853,7 @@ textarea {
   .hero-inner p {
     font-size: 0.9rem !important;
   }
-
+   
   .primary-btn {
     display: inline-block;
     padding: 12px 22px;
@@ -1878,7 +1886,10 @@ textarea {
   .hero-inner p {
     font-size: 0.85rem !important;
   }
-
+ .textclass {
+    font-size: x-small !important;
+    color: darkblue;
+  }
   .primary-btn {
     padding: 10px 18px;
     font-size: 0.85rem;
@@ -1914,4 +1925,8 @@ textarea {
     margin: 0 auto 12px;          /* center & spacing */
     display: block;
   }
+}
+.textclass {
+    font-size: small !important;
+    color: darkblue;
 }
