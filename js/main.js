@@ -48,11 +48,14 @@ document.getElementById("loan-form").addEventListener("submit", async function (
   const name = document.getElementById("le-name").value.trim();
   const email = document.getElementById("le-email").value.trim();
   const phone = document.getElementById("le-phone").value.trim();
- 
+  const loan_type = document.getElementById("le-loan-type").value;
+  const amount = document.getElementById("le-amount").value.trim();
+  const salriesorselfemployed = document.getElementById("salaried-or-selfemployed").value.trim();
+  const takehome = document.getElementById("le-income").value.trim();
   const result = document.getElementById("loan-result");
 
   // Validate
-  if (!name || !email || !phone ) {
+  if (!name || !email || !phone || !loan_type || !amount || !salriesorselfemployed || !takehome) {
     result.innerHTML = "⚠️ Please fill all required fields.";
     result.style.color = "#c0392b";
     return;
@@ -65,7 +68,11 @@ document.getElementById("loan-form").addEventListener("submit", async function (
   const payload = {
     name,
     email,
-    phone
+    phone,
+    loan_type,
+    amount,
+    salriesorselfemployed,
+    takehome  
   };
 
   try {

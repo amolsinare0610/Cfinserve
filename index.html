@@ -211,6 +211,24 @@
     <input type="text" id="le-name" placeholder="Full Name" required>
     <input type="email" id="le-email" placeholder="Email" required>
     <input type="tel" id="le-phone" placeholder="Phone Number" required>
+    <input type="number" id="le-amount" placeholder="Loan Amount (₹)" required>
+    <select id="le-loan-type" required>
+      <option value="" disabled selected>Select Loan Type</option>
+      <option value="home">Home Loan</option>
+      <option value="vehicle">Vehicle Loan</option>
+      <option value="education">Education Loan</option>
+      <option value="personal">Personal Loan</option>
+      <option value="business">Business Loan</option>
+      <option value="medical">Medical Loan</option>
+      <option value="travel">Travel Loan</option>
+      <option value="lap">Loan Against Property</option>
+    </select>
+    <select id="salaried-or-selfemployed" required>
+      <option value="" disabled selected>Employment Type</option>
+      <option value="salaried">Salaried</option>
+      <option value="selfemployed">Self-Employed</option>
+    </select>
+    <input type="number" id="le-income" placeholder="Monthly Income (₹)" required>
   </div>
 
   <div class="btn-row">

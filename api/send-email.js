@@ -5,7 +5,7 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const { name, email, phone, loan_type, amount, tenure, message } = req.body;
+  const { name, email, phone, loan_type,amount,salriesorselfemployed,takehome } = req.body;
 
   const resend = new Resend(process.env.RESEND_API_KEY);
   try {
@@ -24,6 +24,10 @@ module.exports = async function handler(req, res) {
         <p><b>Name:</b> ${name}</p>
         <p><b>Email:</b> ${email}</p>
         <p><b>Phone:</b> ${phone}</p>
+        <p><b>Loan Type:</b> ${loan_type}</p>
+        <p><b>Amount:</b> ${amount}</p>
+        <p><b>Salaried or Self Employed:</b> ${salriesorselfemployed}</p>
+        <p><b>Take Home Income:</b> ${takehome}</p>
       `
     });
 
