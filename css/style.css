@@ -1773,41 +1773,130 @@ textarea {
     font-size: 22px;
   }
 }
-
 .home-inner {
-
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 equal columns */
+  grid-template-columns: 1fr 1fr;  /* text left, image right */
   align-items: center;
-  gap: 40px; /* space between columns */
-  padding: 60px 5%;
-}
-
-.hero-inner {
-  max-width: 500px;
+  gap: 40px;
 }
 
 .hero-inner h1 {
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.hero-inner p {
+  font-size: 1.1rem;
+  line-height: 1.5;
   margin-bottom: 20px;
 }
 
+.primary-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
 .hero-image img {
-  width: 65%;
+  width: 63%;
   height: auto;
-  object-fit: cover;
   border-radius: 10px;
 }
 
-/* Mobile Responsive */
+
+
+/* ===========================
+   TABLET RESPONSIVE
+   =========================== */
+@media (max-width: 991px) {
+  .hero-inner h1 {
+    font-size: 2rem;
+  }
+
+  .hero-inner p {
+    font-size: 1rem;
+  }
+}
+
+
+
+/* ===========================
+   MOBILE STACK (Guaranteed)
+   =========================== */
 @media (max-width: 768px) {
-  #home {
-    grid-template-columns: 1fr; /* stack vertically */
+
+  .home-inner {
+    display: block !important;      /* Force vertical stack */
+  }
+
+  .hero-inner {
     text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .hero-inner h1 {
+    font-size: 1.6rem !important;   /* smaller text */
+  }
+
+  .hero-inner p {
+    font-size: 0.9rem !important;
+  }
+
+  .primary-btn {
+    display: inline-block;
+    padding: 12px 22px;
+    font-size: 0.95rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-image {
-    margin-top: 20px;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 80% !important;
+    height: auto !important;
+  }
+}
+
+
+
+/* ===========================
+   SMALL MOBILE (Extra Responsive)
+   =========================== */
+@media (max-width: 480px) {
+
+  .hero-inner h1 {
+    font-size: 1.4rem !important;
+  }
+
+  .hero-inner p {
+    font-size: 0.85rem !important;
+  }
+
+  .primary-btn {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 items per row */
+    gap: 10px;
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0px 0;
+    font-size: 0.9rem;
+    white-space: nowrap;  /* prevents breaking like "Loan Enquiry" */
   }
 }
